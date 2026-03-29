@@ -26,6 +26,16 @@ function findLargest(numbers) {
   if (numbers.length === 0) {
     return null;
   }
+
+  let largest = numbers[0];
+
+  for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] > largest) {
+      largest = numbers[i];
+    }
+  }
+
+  return largest;
 }
 
 /**
@@ -36,10 +46,9 @@ function findLargest(numbers) {
  */
 function isPalindrome(str) {
   // TODO: Implement this function.
-  const cleanedStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-  const reversedStr = cleanedStr.split('').reverse().join('');
-  return cleanedStr === reversedStr;
-
+  const cleaned = str.toLowerCase();
+  const reversed = cleaned.split('').reverse().join('');
+  return cleaned === reversed;
 }
 
 /**
@@ -48,7 +57,15 @@ function isPalindrome(str) {
  */
 function filterEvenNumbers(numbers) {
   // TODO: Implement this function.
-  return numbers.filter(num => num % 2 === 0);
+  const result = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+      result.push(numbers[i]);
+    }
+  }
+
+  return result;
 }
 
 
@@ -60,4 +77,3 @@ module.exports = {
   isPalindrome,
   filterEvenNumbers,
 };
-
